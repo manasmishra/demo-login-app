@@ -1,0 +1,15 @@
+<p>register works!</p>
+<div>
+  <label for="firstname">First Name: </label>
+  <input id="firstname" [(ngModel)]="user.firstname" type='text' placeholder="First Name" required><br/>
+  <label for="lastname">Last Name: </label>
+  <input id="lastname" [(ngModel)]="user.lastname" type='text' placeholder="Last Name" required><br/>
+  <label for="email">Email: </label>
+  <input id="email" [(ngModel)]="user.email" type='email' placeholder="Email" required><br/>
+  <label for="password ">Password: </label>
+  <input id="password" [(ngModel)]="user.password" type='password' placeholder="password" required><br/>
+</div>
+<button (click)="registerMethod()">Register</button><br/>
+<span style="color: red;">{{message}}</span> 
+<span style="color: green;">{{messagesuccess}}</span> 
+<!-- [routerLink]="['/success']" -->

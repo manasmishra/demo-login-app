@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  demo-login-server:
+    depends_on:
+      - mongodb
+    build:
+      context: ./demo-login-server
+    container_name: demo-login-server
+    hostname: demo-login-server
+    networks:
+      - mynet
+    ports:
+      - 8080:8080
+    environment:
+      - Server=${Server:-0.0.0.0:8080}
+      - MongoDBHost=${MongoDBHost:-mongodb:27017}
+      - MongoDBUser=${MongoDBUser:-}
+      - MongoDBPwd=${MongoDBPwd:-}
+      - Database=${Database:-taskdb}
+      - LogLevel=${LogLevel:-4}
+    deploy:
+      restart_policy:
+        condition: on-failure
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodata:/data/db"
+    networks:
+      - mynet
+  demo-login-ui:
+    build:
+      context: ./demo-login-ui
+    container_name: demo-login-ui
+    hostname: demo-login-ui
+    networks:
+      - mynet
+    ports:
+      - 4200:80
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+volumes:
+    mongodata:
+
+networks:
+  mynet:

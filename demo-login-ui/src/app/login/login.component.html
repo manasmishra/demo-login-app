@@ -1,0 +1,44 @@
+<div>
+  <label for="email">Email: </label>
+  <input id="email" [(ngModel)]="user.email" type='email' placeholder="email"><br/>
+  <label for="password">Password: </label>
+  <input id="password" [(ngModel)]="user.password" type='password' placeholder="password"><br/>
+  <label>If you are First time user <button [routerLink]="['/register']">Click here</button> to register.</label>
+</div>
+<button (click)="loginMethod()">Login</button><br/>
+<span style="color: red;">{{message}}</span>
+<!-- [routerLink]="['/success']" -->
+<!-- <div class="form-group">
+  <label for="email">Email: </label>
+  <input id="email" class="form-control" ngModel name="email" type='email' placeholder="email" required maxlength="30" minlength="2" #email="ngModel"><br/>
+  <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="alert alert-danger">
+    <div *ngIf="email.errors?.required">
+      Name is required.
+    </div>
+    <div *ngIf="email.errors?.minlength">
+      Name cannot be more than 30 characters long.
+    </div>
+    <div *ngIf="email.errors?.minlength">
+      Name must be at least 2 characters long.
+    </div>
+  </div>
+  <label for="password">Password: </label>
+  <input id="password" class="form-control" ngModel name="password" type='password' placeholder="password" required maxlength="30" minlength="2" #password="ngModel"><br/>
+  <div *ngIf="password.invalid && (password.dirty || password.touched)"
+    class="alert alert-danger">
+    <div *ngIf="password.errors?.required">
+      Name is required.
+    </div>
+    <div *ngIf="password.errors?.minlength">
+      Name cannot be more than 30 characters long.
+    </div>
+    <div *ngIf="password.errors?.minlength">
+      Name must be at least 2 characters long.
+    </div>
+  </div>
+  <label>If you are First time user <button [routerLink]="['/register']">Click here</button> to register.</label>
+</div>
+<button (click)="loginMethod()">Login</button>
+<span>{{message}}</span> -->
+<!-- [routerLink]="['/success']" -->
